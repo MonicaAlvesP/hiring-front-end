@@ -14,21 +14,6 @@ export const HeaderStyle = styled.header`
     color: #f0f0f0;
   }
 
-  input {
-    height: 5vh;
-    width: 30vw;
-    border: none;
-  }
-
-
-  button {
-    padding: 10px 20px;
-    background: red;
-    border: none;
-    color: #f0f0f0;
-    border-radius: 5px;
-  }
-
   nav {
     display: flex;
     justify-content: space-evenly;
@@ -69,5 +54,31 @@ export const HeaderStyle = styled.header`
   .carrinho {
     font-size: 1.2rem;
     color: #f0f0f0;
+  }
+`
+
+export const SearchStyle = styled.div`
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  gap: 10px;
+  padding-right: 10px;
+
+  input {
+    padding: 12px;
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+  }
+
+  button {
+    background: #71afce;
+    color: #f0f0f0;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 1.2rem;
   }
 `

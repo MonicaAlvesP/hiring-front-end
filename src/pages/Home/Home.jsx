@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Container, ProductCard, Card, Button } from './HomeStyle';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-const Home = () => {
+const Home = ({ adicionarAoCarrinho, searchTerm }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -36,9 +37,19 @@ const Home = () => {
     );
   };
 
+  const handleAdicionarAoCarrinho = product => {
+    if (product.count > 0) {
+      adicionarAoCarrinho(product);
+    }
+  };
+
+  const filteredProducts = products.filter(product =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <Container>
-      {products.map(product => (
+      {filteredProducts.map(product => (
         <ProductCard key={product.id}>
           <img src={product.avatar} alt={product.name} />
           <h2>{product.name}</h2>
@@ -50,7 +61,9 @@ const Home = () => {
             <button onClick={() => handleRemover(product.id)}>-</button>
           </Card>
           <Button>
-            Comprar
+            <Link to="/cart" onClick={() => handleAdicionarAoCarrinho(product)}>
+              Adicionar ao carrinho
+            </Link>
           </Button>
         </ProductCard>
       ))}

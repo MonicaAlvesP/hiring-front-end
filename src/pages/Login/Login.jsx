@@ -1,22 +1,51 @@
-import React from 'react'
-import { SignInContainer } from './LoginStyle'
+import React, { useState } from 'react';
+import { ContainerLogin } from './LoginStyle.js';
 
-const Login = () => {
+function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aqui você pode adicionar a lógica de autenticação
+  };
+
   return (
-    <SignInContainer>
-      <h1>Identificação</h1>
-
-      <h2>Entre ou cadastre - se</h2>
-
-      <form action="">
-        <p>Para começar, digite seu CPF ou CNPJ no campo abaixo.</p>
+    <ContainerLogin>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
         <label>
-          <input type="text" placeholder="Digite seu CPF ou CNPJ" />
+          Email
+          <input
+            type="email"
+            value={email}
+            onChange={handleEmailChange}
+            placeholder="Digite seu email"
+            required
+          />
         </label>
-        <button>Continuar</button>
+        <label>
+          Senha
+          <input
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+            placeholder="Digite sua senha"
+            required
+          />
+        </label>
+        <button type="submit">Login</button>
       </form>
-    </SignInContainer>
-  )
+    </ContainerLogin>
+  );
 }
 
-export default Login
+export default Login;

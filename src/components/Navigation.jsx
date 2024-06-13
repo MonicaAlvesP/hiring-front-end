@@ -1,16 +1,16 @@
-import { Routes, Route } from "react-router-dom";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-import Home from "../pages/Home/Home";
-import Login from "../pages/Login/Login";
-import Shopping from "../pages/Shopping/Shopping";
+import Home from '../pages/Home/Home';
+import Login from '../pages/Login/Login';
+import Cart from '../pages/CartContext/Cart';
 
-
-const Navigation = () => {
+const Navigation = ({ adicionarAoCarrinho, removerDoCarrinho, carrinho, searchTerm }) => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home adicionarAoCarrinho={adicionarAoCarrinho} searchTerm={searchTerm} />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/shopping" element={<Shopping />} />
+      <Route path="/cart" element={<Cart itens={carrinho} removerDoCarrinho={removerDoCarrinho} />} />
     </Routes>
   );
 }

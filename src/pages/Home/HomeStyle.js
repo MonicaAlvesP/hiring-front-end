@@ -5,16 +5,20 @@ export const Container = styled.div`
   flex-wrap: wrap;
   padding: 20px;
   justify-content: center;
+  align-items: center;
 `
 
 export const ProductCard = styled.div`
   border: 1px solid #ddd;
   margin: 10px;
-  padding: 20px;
+  padding: 25px;
+  height: 65vh;
   width: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   text-align: center;
+  align-items: center;
+  justify-content: center;
 
   img {
     height: 20vh;
@@ -29,42 +33,6 @@ export const Card = styled.div`
   gap: 20px;
 `
 
-export const PaginationContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-
-  ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-
-
-    li {
-      margin: 0 5px;
-      padding: 8px 12px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      cursor: pointer;
-
-      &.active {
-        background-color: #71afce;
-        color: #fff;
-      }
-
-      a {
-        text-decoration: none;
-        color: #333;
-      }
-
-      a:active{
-        color: #fff;
-      }
-    }
-  }
-`;
-
 export const Button = styled.button`
   background-color: #71afce;
   color: #fff;
@@ -76,6 +44,11 @@ export const Button = styled.button`
   margin-top: 10px;
 
   &:hover {
-    background-color: #a61d1a;
+    background-color: #4a90e2;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
   }
 `;
